@@ -18,6 +18,19 @@ app.get('/getAccounts',function(req,res){
     })
 })
 
+app.post('/addNewAccount',function (req,res) {
+	db.accounts.insert({
+		name : req.body.name,
+		deposit : req.body.deposit,
+		cCard : req.body.cCard,
+		city : req.body.city,
+	},function (err,docs) {
+		res.send(docs)
+	})
+})
+
+
+
 app.listen(3000,function(){
     console.log("Listening to port 3000");
 })
