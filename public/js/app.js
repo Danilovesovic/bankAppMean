@@ -1,4 +1,4 @@
-angular.module('bankApp',['ngRoute','mainController','addAccountController'])
+angular.module('bankApp',['ngRoute','mainController','addAccountController','editPageController'])
     .config(function($routeProvider,$locationProvider){
         $locationProvider.hashPrefix("");
         $routeProvider
@@ -9,5 +9,9 @@ angular.module('bankApp',['ngRoute','mainController','addAccountController'])
         .when('/addAccount',{
         	templateUrl : "pages/addAccount.html",
         	controller : "addAccountCtrl"
+        })
+        .when('/editAccount',{
+            templateUrl : "pages/editPage.html",
+            controller : 'editPageCtrl'
         })
     })

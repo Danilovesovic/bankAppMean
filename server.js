@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongojs = require('mongojs');
+var oid = mongojs.ObjectId;
 var db = mongojs('danilovaDB',['accounts']);
 
 var app = express();
@@ -16,6 +17,13 @@ app.get('/getAccounts',function(req,res){
         if(err) throw err;
         res.send(docs);
     })
+})
+
+app.post('/removeAcc',function(req,res){
+	var id = req.body.id;
+	db.accounts.remove({_id:oid(id)},function(err,doc){
+		res.send(doc);
+	})
 })
 
 app.post('/addNewAccount',function (req,res) {

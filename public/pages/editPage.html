@@ -1,0 +1,26 @@
+<h2 class="pageHeader">Choose Action</h2>
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Deposit</th>
+                    <th>Credit Card</th>
+                    <th>City</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="account in accounts">
+                    <td>{{account.name}}</td>
+                    <td>{{account.deposit}}</td>
+                    <td>{{account.cCard}}</td>
+                    <td>{{account.city}}</td>
+                    <td><button class="btn btn-sm btn-danger" ng-click="removeAcc(account._id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
