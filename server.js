@@ -37,6 +37,28 @@ app.post('/addNewAccount',function (req,res) {
 	})
 })
 
+app.post('/getOneAccount',function(req,res){
+	db.accounts.findOne({_id:oid(req.body.id)},function(err,doc){
+		if(err) throw err;
+		res.send(doc)
+	})
+})
+
+app.post('/editOne',function(req,res){
+	db.accounts.update({
+		_id : oid(req.body.id)
+	},
+	{
+		$set : { 
+			name : req.body.name,
+			deposit : req.body.deposit,
+			cCard : req.body.cCard,
+			city : req.body.city 
+		 }
+	},function(err,doc){
+		res.send('Ok')
+	})
+})
 
 
 app.listen(3000,function(){
